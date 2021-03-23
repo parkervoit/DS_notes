@@ -38,6 +38,8 @@ GIT PUSH EVERY DAY
 - `git push` uploads any commits we have to your remotes
 - lather, rinse, repeat...
 - `git remote -v` shows all of your remotes
+- `git branch -m main` changes your branch to the `main` branch
+- `git config --global init.defaultBranch main` sets your git profile default branch to main rather than master
 
 # 3.23.2021
 
@@ -73,4 +75,64 @@ GIT PUSH EVERY DAY
 - made up of statements and commands sent to the server, with results sent back to the client
 - These statements and commands fall across DML and DDL categories
 - You can chain queries to pull together multiple datasets
+## MySQL Databases
+### DB commands
+- `SHOW DATABASES;` to see a full list of DBs in the MySQL server
+    - this will output a list of database names
+    - sequel pro has a drop down menu that lists all the databases
+- `USE database_name;` lets you select and use a database on the server
+- `database_name.table_name` lets you query tables or objects in a seprate database
+- `SELECT database();` shows which database you have currently selected
+- `SHOW CREATE DATABASE database_name;` lets you create a database
+    - words like `SELECT`, `INSERT`, and `CREATE` are reserved words and cannot be used for names
+## MySQL Tables
+### Data Types
+- Numeric Types:
+    - `INT`: any number without a decimal point. Can be `UNSIGNED` which means it can only hold positive values
+    - `FLOAT`: A number with decimal values, can be less accurate. Use `DOUBLE` to increase precision
+    - `DECIMAL(length, precision)`: A precise decimal number. Must be defined with a length(# of digits stored in the value) and precision(# of digits after the decimal) arguments. Perfect for storing monetary values
+- MySQL has no native support for boolean values
+    - Uses `TINYINT` with a range of -128 to 127. Treats 0==False and 1==True
+- String Types:
+    - `CHAR(length)`: a string with a fixed # of chars where length can be from 1 to 255. 
+        - If a string shorter than length is stored, it is filled with empty space to take up the full size.
+        - if it is larger than length, it will return an error
+        - Useful for storing values with consistent length 
+    - `VARCHAR(length)`: for strings where the length can vary up to a max number
+    - `TEXT`: A large block of characters that can be any length. Only use for very large blocks of text, like the full text of an article.
+- Date Types:
+    - `DATE`: a date value without any time. Displayed `YYYY-MM-DD`
+    - `TIME`: Time down to seconds. Uses a 24 hr system
+    - `DATETIME`: Shows both time and date. Displayed `YYYY-MM-DD HH:MM:SS` 
+- `NULL`: not 0, instead the absence of any value. Using `NOT NULL` helps prevent any SQL weirdness that may arise from the database
+
+### Creating Tables
+- General syntax
+CREATE TABLE table_name (
+    column1_name data_type,
+    column2_name data_type,
+    ...
+);
+#### Primary Keys
+- Primary keys are a way to uniquely identify a single row in a table
+- its a column with the following rules
+    1. Each value must be unique (think IDs or SS#)
+    2. Cannot be `NULL` 
+    3. Only one per table
+### Showing Tables
+- `SHOW TABLES;`: shows tables defined in the database
+- `DESCRIBE table_name;` or `SHOW CREATE` or `EXPLAIN` to find more info out about the table. 
+## Basic Statements
+- SQL encloses strings with (') as a standard
+### Comments
+- '#' or -- for single line comments 
+- /* and */ for multi line comments
+### Select Statement
+- `SELECT column1 [, column2[, ...]] FROM table_name;` finds and returns rows from a given column or columns in a table. 
+- `SELECT * FROM fruits;` shows all available columns from a table 
+- `SELECT DISTINCT column1 FROM table_name;` eliminates duplicate values from a select output
+    - adding `WHERE column_name = 'value';` specifies a condition that must be true for a given row to be returned
+    - you can use operators as part of a `WHERE` clause
+- `SELECT 'string' AS column_name;` provides an alias for an arbitrary string as an output.
+-`SELECT 1+1 AS two`: A convenient way to rename tables, columns or other outputs temporarily 
 
