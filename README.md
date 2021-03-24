@@ -1,5 +1,3 @@
-# 3.22.2021
-
 # Git
 
 ## Git is a great way to share and update code
@@ -40,8 +38,6 @@ GIT PUSH EVERY DAY
 - `git remote -v` shows all of your remotes
 - `git branch -m main` changes your branch to the `main` branch
 - `git config --global init.defaultBranch main` sets your git profile default branch to main rather than master
-
-# 3.23.2021
 
 # SQL Notes
 ### vocab words
@@ -135,4 +131,13 @@ CREATE TABLE table_name (
     - you can use operators as part of a `WHERE` clause
 - `SELECT 'string' AS column_name;` provides an alias for an arbitrary string as an output.
 -`SELECT 1+1 AS two`: A convenient way to rename tables, columns or other outputs temporarily 
-
+### WHERE in depth
+- `WHERE` indicates a condition that needs to be satisfied to show a row
+- Combining with `LIKE` will search for similarities
+- Use `%` to search for strings that contain a specified letter combination
+- `BETWEEN value1 AND value 2` is how you specify a range 
+-  `IN ('val1','val2','val3')` queries only those specific sets of values. 
+- Can use comparison operators `=`,`<`,`<=`
+- Can use `IS NULL` or `IS NOT NULL` to see if a value is null
+- Can use `AND` and `OR` operators to string together `WHERE` clauses
+- `NOT` will show a value if the condition is not true
