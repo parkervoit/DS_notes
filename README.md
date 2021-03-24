@@ -125,7 +125,7 @@ CREATE TABLE table_name (
 - /* and */ for multi line comments
 ### Select Statement
 - `SELECT column1 [, column2[, ...]] FROM table_name;` finds and returns rows from a given column or columns in a table. 
-- `SELECT * FROM fruits;` shows all available columns from a table 
+- `SELECT * FROM table_name;` shows all available columns from a table 
 - `SELECT DISTINCT column1 FROM table_name;` eliminates duplicate values from a select output
     - adding `WHERE column_name = 'value';` specifies a condition that must be true for a given row to be returned
     - you can use operators as part of a `WHERE` clause
