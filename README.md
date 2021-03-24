@@ -141,3 +141,14 @@ CREATE TABLE table_name (
 - Can use `IS NULL` or `IS NOT NULL` to see if a value is null
 - Can use `AND` and `OR` operators to string together `WHERE` clauses
 - `NOT` will show a value if the condition is not true
+### ORDER BY
+- `ORDER BY` lets us specify the order in which we view data
+- Generalized syntax:`SELECT column FROM table ORDER BY column [ASC|DESC];`
+- Columns selected can be aliases, names, or positions. Positions begin at 1.
+- `ORDER BY` can be used with any `SELECT` queries
+- you can chain `ORDER BY` arguments by seperating with a `,`
+### LIMIT 
+- `LIMIT` lets you limit results returned to a specified number or range
+- Generalized syntax: `SELECT columns FROM table LIMIT count [OFFSET count];`
+- `LIMIT` specifies a certain amount of rows to return, and `OFFSET` sets the row to start counting from
+- these two commands are typically used for creating pages of data
