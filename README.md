@@ -152,3 +152,52 @@ CREATE TABLE table_name (
 - Generalized syntax: `SELECT columns FROM table LIMIT count [OFFSET count];`
 - `LIMIT` specifies a certain amount of rows to return, and `OFFSET` sets the row to start counting from
 - these two commands are typically used for creating pages of data
+## GROUP BY
+- `GROUP BY` syntax : `SELECT column FROM table GROUP BY column_name [ASC|DESC];`
+    - returns only unique occurances in the column, functionally similar to `DISTINCT`
+- Any columns in the `SELECT` statement must be in the `GROUP BY` clause
+## Aggregate Functions
+- Aggregate functions works with data across all rows in a result, rather than in a single column or two. 
+- `COUNT(*)` returns the number of non-null expressions in a result
+- `AVG()` returns the average value of a result
+- `MAX()` and `MIN()` returns the max and min of a result, respectively
+- `STD()` or `STDDEV()` returns the standard deviation
+- `SUM()` returns the sum 
+### USING GROUP BY with Aggregate Functions
+- Aggregates with GROUP BYs can be used to find deeper insights into the data
+## Relationships
+- MySQL is an RDBMS, and the R stands for relational. MySQL can use this structure to combine and manage data from different tables
+### Indices
+- Primary Keys: a unique identifying index that keeps columns related to rows
+    - it will typically be some sort of user_ID or other unique identifier like a DL##
+- Unique indexes: similar in function as a primary key, but unlike primary keys, you can have more than one unique index per table. 
+    - You can use `ALTER TABLE 'tablename' ADD UNIQUE (UNI_ID)` to add a unique key. 
+- Foreign Keys: keys used to relate tables used in joins. 
+- Multiple-Column Indexes: you can make composite indexes to further specify what you want returned
+    - e.g. use `UNIQUE(first_name, last_name);` to make a unique column of first and last name combinations
+### JOIN
+- There are 3 types of joins:
+    1. `JOIN` (a.k.a INNER JOIN) 
+        - joins two tables at one key, only includes not-null rows and values that are shared by both tables
+    2. `LEFT JOIN`
+        - joins all of table 1, while only returning shared from table 2. 
+    3. `RIGHT JOIN`
+        - joins only shared values in table 1, while sharing all of table 2
+-  `JOIN` syntax: `SELECT columns FROM table_a as A JOIN table_b as B ON A.id = B.fk_id;`
+- If you want to join two tables and their keys have the same name you can use `USING(key_name)` instead of the ON statement.
+### Sub-queries
+- Also called nested queries, are queries within a query
+- we want to use subqueries when we want to find out if a value is whithin a subset of acceptable values
+- nested query syntax: `SELECT column_a, column_b, column_c FROM table_a WHERE column_a IN (SELECT column_a FROM table_b WHERE column_b = true);`
+- Make sure the nested query runs on its own and selects the specified data you want. The outside query will operate using the nested query as a parameter. It's almost like a working table... although that language isnt the best. 
+## Temporary Tables
+* WARNING : the `DROP` commands and `ALTER` commands permanently change a table. For this reason, only do this on temporary tables, not on production database tables. 
+- Temporary table name syntax: `CREATE TEMPORARY TABLE table_name(...);`
+    - syntax is similar to creating regular tables, it just contains the `TEMPORARY` keyword
+- You can insert values into a table using `INSERT INTO table_name(column) VALUES (1) , (2) , (3);` 
+- Modify values using `UPDATE table_name SET column = column + 1;`
+- Remove records with `DELETE FROM table_name WHERE column <> 2;`
+- You can create a temp table using results from a query using `CREATE TEMPORARY TABLE table_name AS ('QUERY');`
+- Use `ALTER TABLE table_name DROP COLUMN column_name` to delete a column
+- Use `ALTER TABLE table_name ADD column_name data_type();` to add a column. 
+- populate with `UPDATE`
