@@ -201,3 +201,31 @@ CREATE TABLE table_name (
 - Use `ALTER TABLE table_name DROP COLUMN column_name` to delete a column
 - Use `ALTER TABLE table_name ADD column_name data_type();` to add a column. 
 - populate with `UPDATE`
+## CASE statements
+- `CASE` statements allow you to process if then operators in a specific order 
+- `CASE` general syntax: `SELECT CASE WHEN column_name condition_a THEN value_1 WHEN column_name condition_b THEN value_2 ELSE value_3 END AS new_column_name`
+- Use `CASE` if you want to bin data to reduce noise in data
+- Use when you have more than two optional values 
+- Use when you need more flexibility in conditional tests
+### IF Function
+- use `IF` when evaluating a single condition to be true or false
+- if you want a column of boolean values (Outputs in 0 or 1) 
+- `IF` syntax: `IF (expression, expr_true, expr_false)`
+# Python
+- high-level, dynamic, interpreted programming language that is very popular with data scientists
+## Using a REPL
+- REPL stands for read-eval-print-loop
+    - a program that reads the input, evaluates it as python code, prints the result, and then prompts for another input
+    - initiate iPython using `ipython` 
+## Scripts
+- a .py file ran from the terminal
+- example command: `python filename.py`
+- REPLs will show the result of every expression, whereas a script will only output errors and explicit print statements
+## Jupyter Notebooks
+- an interactive computing environment that allow you to write python code and immediately see results
+- open a Jupyter notebook with `jupyter notebook` 
+- it runs ipython under the hood, is a good way to combine markdown and python code
+- better for doing visualizations rather than data management and transformations
+## Package installation
+- A package is a group of code bundled together to be distributed
+- initialize an install using `pip install packagename`
