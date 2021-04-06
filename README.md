@@ -229,3 +229,99 @@ CREATE TABLE table_name (
 ## Package installation
 - A package is a group of code bundled together to be distributed
 - initialize an install using `pip install packagename`
+## Data Types, Variables, and Operators
+### Data types 
+- python stores data values as the following data types:
+    - `bool`: boolean values, True/false; an answer to a yes/no question
+    - `str`: a sequence of characters strung together
+    - `int`: whole, or counting numbers
+    - `float`: decimal numbers
+    - `list`: ordered sequence of objects
+    - `dict`: a collection of values that have names
+    - `NoneType`: indicates absence of a value
+- you can find a data type by using the function `type()`
+### Variables
+- Variables are a way to assign names to values. They are created by choosing an identifier and using the assignment operator `=`
+    - Naming convention is in snake_case, which is a delimiter-separated convention. 
+        1. it is lowercase
+        2. words are separated by underscores 
+- Variables can reference themselves when they are assigned or re-assigned
+### Booleans
+- There are two boolean values: `True` and `False`
+    - Boolean values can be compared with the `==` and `!=` operators. *REMEMBER:`=` is an assignment operator, it is != to `==`*
+    - Can also be combined with `and`, `or`, or `not` operators
+- Booleans typically represent yes/no questions
+### Numbers
+- Python uses two data types to represent numbers:
+    1. `int`, which cannot have decimal places
+    2. `float`, which can
+- You can use the following operators to perform arithmatic on numbers:
+    1. `+` for addition
+    2. `-` for subtraction
+    3. `*` for multiplication
+    4. `/` for division
+    5. `**` for exponentiation
+- Numbers can be compared with the following operators:
+    1. `==` equal to
+    2. `!=` not equal to
+    3. `>` greater than
+    4. `<` less than
+    5. `>=` greater than or equal to
+    6. `<=` less than or equal to
+### Strings
+- Strings represent arbitrary text
+- They are delimited using single or double quotes
+- Strings can be compared with `==` or `!=`
+- Strings can be concatenated with `+`
+- Strings can be repeated with `*`
+#### String Formatting
+- There are several ways to include variables in strings
+    1. `%` formatting
+    2. `.format`
+    3. f-strings: comparable to string interpolation
+- Examples: `name = 'World'`, desired output: `Hello World!`
+    1. `%` formatting: `'Hello, %s!' % name`
+    2. `.format`: `'Hello, {}!'.format(name)`
+    3. f-strings: `f'Hello {name}!'`
+#### String Methods
+- String objects have different functions to manipulate text
+    1. `.lower` and `.upper`: converts strings to lower and upper case respectively
+    2. `.strip`: remove any leading/trailing whitespace from a string
+    3. `.isdigit`: test whether or not the string is a number
+    4. `.split`: converts a string to a list
+    5. `.join`: converts a list to a string
+*Methods listed don't modify the orginal string; they return a new modified string*
+- Examples: `s = '   Hello, Codeup!'`
+    1. `s.lower()` outputs `'   hello, codeup!'`
+    2. `s.strip()` outputs `'Hello, Codeup!`
+    3. `s.isdigit()` outputs `False`, `123.isdigit()` outputs `True`
+    4. `s.strip().split(', ')` outputs `['Hello', 'Codeup!']`
+    5. `', '.join(['one', 'two', 'three'])` outputs `'one, two, three'`
+### Lists
+- Allow us to store a sequence of objects
+- Each item in a list is referred to as an *element* 
+#### List Comprehensions
+- Lists can be created with a list comprehension
+- Shares syntax with loops; Can specify what elemnts should be in a list
+- list comprehension syntax: [n for n in range(10)] outputs [0,1,2,3,4,5,6,7,8,9,]
+    - can add if statements after the in argument
+#### List Operations
+- Itemns can be added with `.append`
+- Items can be removed with `.pop`
+- Length of a list can be returned with `.len`
+- Individual elements can be pulled using thier index in the list, which starts from 0
+- Ranges can be indicated by using a `:` within brackets
+- Object types can be converted to a list by using `list()`
+### Tuples
+Tuples are like lists but are immutable, meaning unchageable
+- you can access the tuples the same way as using lists
+- tuples are used when there are different data types, whereas lists are used when elements are all of the same type
+### Dictionaries
+Dictionaries are a way to group values together and give a name to each value
+- value names are often called keys
+- Dictionaries are a group of key-value pairs
+Dictionaries can be built a few ways:
+- A dictionary literal uses curly braces to delimit and seperates keys with colons, pairs seperated by commas. 
+    - example syntax: `{'name': 'dude', 'age' : '22'}`
+- Can be built using the `dict` function
+    - example syntax: `dict(name='dude', age=22)`
